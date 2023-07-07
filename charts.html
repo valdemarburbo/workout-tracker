@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Tracker</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -15,8 +14,8 @@
     <main>
         <nav>
             <ul>
-                <li><a class="active" href="index.html">Tracker</a></li>
-                <li><a href="charts.html">Charts</a></li>
+                <li><a href="index.html">Tracker</a></li>
+                <li><a class="active" href="charts.html">Charts</a></li>
                 <li><a href="videos.html">Videos</a></li>
             </ul>
         </nav>
@@ -65,7 +64,46 @@
                     </tr>
                 </tbody>
             </table> -->
-        </div>    
+        </div>
+    
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+        <script>
+            const ctx = document.getElementById('myChart');
+          
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['26/06/23', '03/07/23', '10/07/23', '17/07/23', '24/07/23', '31/07/23'],
+                datasets: [{
+                  label: 'Bench Press, kg',
+                  data: [60, 62.5, 62.5, 60, 62.5, 65],
+                  borderWidth: 2
+                }, 
+                {
+                  label: 'Overhead Press, kg',
+                  data: [40, 42.5, 42.5, 45, 45, 47.5],
+                  borderWidth: 2
+                },
+                {
+                  label: 'Barbell Row, kg',
+                  data: [50, 52.5, 55, 57.5, 60, 62.5],
+                  borderWidth: 2
+                } ]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: false
+                  }
+                }
+              }
+            });
+          </script>      
     </main>
 
     

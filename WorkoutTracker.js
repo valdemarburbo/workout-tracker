@@ -15,8 +15,12 @@ export default class WorkoutTracker {
 
             this.addEntry({
                 date: `${ year }-${ month }-${ day }`,
-                workout: "walking",
-                duration: 30
+                workout: "bench-press",
+                weight: 0,
+                set1: 0,
+                set2: 0,
+                set3: 0,
+                set4: 0
             });
         });
     }
@@ -27,8 +31,12 @@ export default class WorkoutTracker {
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Workout</th>
-                        <th>Duration</th>
+                        <th>Exercise</th>
+                        <th>Weight</th>
+                        <th>Set 1</th>
+                        <th>Set 2</th>
+                        <th>Set 3</th>
+                        <th>Set 4</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -39,7 +47,7 @@ export default class WorkoutTracker {
 
                 <tbody>
                     <tr class="tracker-row tracker-row-add">
-                        <td colspan="4">
+                        <td colspan="8">
                             <button type="button" class="tracker-add">Add Entry &plus;</button>
                         </td>
                     </tr>
@@ -56,17 +64,50 @@ export default class WorkoutTracker {
                 </td>
                 <td>
                     <select class="tracker-workout">
-                        <option value="walking">Walking</option>
-                        <option value="running">Running</option>
-                        <option value="outdoor-cycling">Outdoor Cycling</option>
-                        <option value="indoor-cycling">Indoor Cycling</option>
-                        <option value="swimming">Swimming</option>
-                        <option value="yoga">Yoga</option>
+                        <option value="bench-press">Barbell Bench Press</option>
+                        <option value="incline-dumbbell-press">Incline Dumbbell Press</option>
+                        <option value="barbell-row">Barbell Row</option>
+                        <option value="lat-pulldown">Lat Pulldown</option>
+                        <option value="overhead-press">Overhead Press</option>
+                        <option value="barbell-curl">Barbell Curl</option>
+                        <option value="skullcrusher">Skullcrusher</option>
+                        <option value="squat">Squat</option>
+                        <option value="deadlift">Deadlift</option>
+                        <option value="leg-press">Leg Press</option>
+                        <option value="hamstring-curl">Hamstring Curl</option>
+                        <option value="seated-calf-raise">Seated Calf Raise</option>
+                        <option value="incline-barbell-bench-press">Incline Barbell Bench Press</option>
+                        <option value="dumbbell-bench-press">Dumbbell Bench Press</option>
+                        <option value="seated-cable-row">Seated Cable Row</option>
+                        <option value="dumbbell-row">Dumbbell Row</option>
+                        <option value="dumbbell-side-raise">Dumbbell Side Raise</option>
+                        <option value="seated-incline-dumbbell-curl">Seated Incline Dumbbell Curl</option>
+                        <option value="cable-tricep-extension">Cable Tricep Extension</option>
+                        <option value="front-squat">Front Squat</option>
+                        <option value="romanian-deadlift">Romanian Deadlift</option>
+                        <option value="quad-extension">Quad Extension</option>
+                        <option value="hip-thrust">Hip Thrust</option>
                     </select>
                 </td>
                 <td>
-                    <input type="number" class="tracker-duration">
-                    <span class="tracker-text">minutes</span>
+                    <input type="number" class="tracker-weight">
+                    <span class="tracker-text">kg</span>
+                </td>
+                <td>
+                    <input type="number" class="tracker-set1">
+                    <span class="tracker-text">reps</span>
+                </td>
+                <td>
+                    <input type="number" class="tracker-set2">
+                    <span class="tracker-text">reps</span>
+                </td>
+                <td>
+                    <input type="number" class="tracker-set3">
+                    <span class="tracker-text">reps</span>
+                </td>
+                <td>
+                    <input type="number" class="tracker-set4">
+                    <span class="tracker-text">reps</span>
                 </td>
                 <td>
                     <button type="button" class="tracker-delete">&times;</button>
@@ -94,7 +135,11 @@ export default class WorkoutTracker {
 
             row.querySelector(".tracker-date").value = data.date;
             row.querySelector(".tracker-workout").value = data.workout;
-            row.querySelector(".tracker-duration").value = data.duration;
+            row.querySelector(".tracker-weight").value = data.weight;
+            row.querySelector(".tracker-set1").value = data.set1;
+            row.querySelector(".tracker-set2").value = data.set2;
+            row.querySelector(".tracker-set3").value = data.set3;
+            row.querySelector(".tracker-set4").value = data.set4;
 
             row.querySelector(".tracker-date").addEventListener("change", ({ target }) => {
                 data.date = target.value;
@@ -106,8 +151,28 @@ export default class WorkoutTracker {
                 this.saveEntries();
             });
 
-            row.querySelector(".tracker-duration").addEventListener("change", ({ target }) => {
-                data.duration = target.value;
+            row.querySelector(".tracker-weight").addEventListener("change", ({ target }) => {
+                data.weight = target.value;
+                this.saveEntries();
+            });
+
+            row.querySelector(".tracker-set1").addEventListener("change", ({ target }) => {
+                data.set1 = target.value;
+                this.saveEntries();
+            });
+
+            row.querySelector(".tracker-set2").addEventListener("change", ({ target }) => {
+                data.set2 = target.value;
+                this.saveEntries();
+            });
+
+            row.querySelector(".tracker-set3").addEventListener("change", ({ target }) => {
+                data.set3 = target.value;
+                this.saveEntries();
+            });
+
+            row.querySelector(".tracker-set4").addEventListener("change", ({ target }) => {
+                data.set4 = target.value;
                 this.saveEntries();
             });
 

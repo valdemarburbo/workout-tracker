@@ -14,6 +14,7 @@
     font-weight: normal;
     color: #ffffff;
     background: #009578;
+    font-weight: bold;
 }
 
 .tracker th,
@@ -31,7 +32,11 @@
 
 .tracker-date,
 .tracker-workout,
-.tracker-duration {
+.tracker-weight,
+.tracker-set1,
+.tracker-set2,
+.tracker-set3,
+.tracker-set4 {
     display: inline-block;
     box-sizing: border-box;
     font-size: 1em;
@@ -42,9 +47,13 @@
     background: none;
 }
 
-.tracker-duration {
-    width: 5em;
-    text-align: right;
+.tracker-weight,
+.tracker-set1,
+.tracker-set2,
+.tracker-set3,
+.tracker-set4 {
+    width: 3em;
+    text-align: left;
 }
 
 .tracker-delete {
@@ -66,9 +75,9 @@
 }
 
 .tracker-row-add {
-    border-top: 3px solid #333333;
-    border-bottom: 3px solid #333333;
-    background: #ffffff;
+    border-top: 2px solid #333333;
+    /*border-bottom: 2px solid #333333;*/
+    background-color: white;
 }
 
 .tracker-row-add td {
@@ -84,4 +93,79 @@
 
 .tracker-add:hover {
     background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display: flex;
+    justify-content: center;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: auto;
+}
+
+li {
+    display: inline-block;
+    font-family: sans-serif;
+    margin: auto;
+    
+    font-weight: bold;
+}
+
+li a:hover {
+    background-color: #009578;
+  }
+
+main {
+    width: 950px;
+    margin: auto;
+    border: #333 2px solid;
+    border-radius: 10px;
+    padding-bottom: 1em;
+    background-color: white;
+}
+
+table {
+    margin: auto;
+    border-radius: 10px;
+}
+
+nav {
+    margin-bottom: 1em;
+    border-bottom: #333 2px solid;
+}
+
+h1,
+h2 {
+    font-family: sans-serif;
+    text-align: center;
+    color: #333;
+}
+
+body {
+    background-color: #eee;
+}
+
+.active {
+    background-color: #009578;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    border: #333 2px solid;
 }
